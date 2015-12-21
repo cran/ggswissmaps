@@ -1,0 +1,83 @@
+---
+title: "`ggswissmaps` Intro"
+author: "gibo"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+## Installation
+
+You can install the package with `devtools::install_github`:
+
+```{r eval=FALSE}
+# install.packages("devtools")
+devtools::install_github("gibonet/ggswissmaps")
+```
+
+## Content
+
+First of all, load the package:
+```{r}
+library(ggswissmaps)
+```
+
+We can use the `ls` function to look at the content:
+```{r}
+ls("package:ggswissmaps")
+```
+
+Or launch the help:
+```{r eval = FALSE}
+utils::help(package = "ggswissmaps")
+```
+
+
+There is some data:
+```{r}
+data(package = "ggswissmaps")
+```
+
+
+
+
+## Examples
+
+### Using the data
+
+```{r}
+data("shp_df")
+class(shp_df)
+length(shp_df)
+names(shp_df)
+
+# Data description
+?shp_df
+```
+
+### Some maps
+
+```{r}
+data("maps2")
+names(maps2)
+
+# By name
+maps2[["g1k15"]]
+
+# By index
+maps2[[5]]
+```
+
+The objects contained in `maps2` are `ggplot` objects. They have been created with `ggplot2::ggplot` plus a `ggplot2::geom_path` layer with the data in `shp_df`. As an example, the previous map is the same as:
+
+```{r}
+ggplot(shp_df[["g1k15"]], aes(x = long, y = lat, group = group)) +
+  geom_path() +
+  coord_equal() +
+  theme_white_f()
+```
+
+
