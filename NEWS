@@ -1,3 +1,24 @@
+ggswissmaps 0.0.8
+----------------------------------------------------------------
+
+NEW FEATURES
+
+* Added function maps2_
+* The object maps2 is created dynamically with the function maps2_ and is available simply by writing it (it is no more necessary to load it with data(maps2))
+* The size of the package source (tar.gz) has been reduced form about 1.5 MB to 0.6 MB
+
+
+
+ggswissmaps 0.0.7
+----------------------------------------------------------------
+
+NEW FEATURES
+
+* Works with ggplot2 >= 2.0.0.9001
+* Object "maps" removed (redundant, use data(maps2))
+
+
+
 ggswissmaps 0.0.6
 ----------------------------------------------------------------
 

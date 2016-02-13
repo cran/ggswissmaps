@@ -61,7 +61,6 @@ names(shp_df)
 ### Some maps
 
 ```{r}
-data("maps2")
 names(maps2)
 
 # By name

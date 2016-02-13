@@ -19,7 +19,6 @@ Columns are not all the same across data frames, but usually they have the follo
 }
 }
 \examples{
-data(maps2)
 class(maps2)
 length(maps2)
 names(maps2)

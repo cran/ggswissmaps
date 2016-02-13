@@ -1,32 +1,6 @@
 
 
 
-#' A list with 16 maps of Switzerland's territory at various levels.
-#'
-#' Every element of the list is a ggplot2 object which is
-#' already ready to plot. 
-#' \itemize{
-#'   \item distretti. Swiss districts
-#'   \item comuni. Swiss communes (2014)
-#'   \item boh. Don't know
-#'   \item boh2. Don't know 2
-#'   \item cantoni. Swiss cantons
-#'   \item ch. Swiss national boundaries
-#'   \item gr. Swiss big regions (NUTS3)
-#' }
-#'
-#' @format A list with 16 ggplot2 maps with swiss territory
-#' @source \url{http://www.bfs.admin.ch/bfs/portal/fr/index/dienstleistungen/geostat/datenbeschreibung.html}
-#' @examples
-#' data(maps)
-#' maps[[1]]
-#' names(maps)
-#' maps[["cantoni"]]
-#' str(maps[["cantoni"]])
-#' str(maps[["cantoni"]]$data)
-#' @name maps
-NULL
-
 
 
 #' Offers various swiss maps as ggplot2 objects.
@@ -98,7 +72,6 @@ NULL
 #' @format A list with 16 data frames with swiss territory boundaries (at various levels).
 #' @source \url{http://www.bfs.admin.ch/bfs/portal/fr/index/dienstleistungen/geostat/datenbeschreibung.html}
 #' @examples
-#' data(maps2)
 #' class(maps2)
 #' length(maps2)
 #' names(maps2)
@@ -109,8 +82,20 @@ NULL
 #' 
 #' # By index
 #' maps2[[5]]
+#' @export
 #' @name maps2
-NULL
+data("shp_df", envir = parent.env(environment()))
+maps2 <- lapply(shp_df, maps2_)
+
+# Sostituito le due righe qui sotto (0.0.7) (e tolto maps2.rda dalla cartella data/)
+# #' @name maps2
+# NULL
+
+# Con queste 4 (0.0.8)
+# #' @name maps2
+# #' @export
+# data("shp_df")
+# maps2 <- lapply(shp_df, maps2_)
 
 
 # extract_data <- function(gg){
