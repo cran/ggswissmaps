@@ -1,4 +1,11 @@
-## ------------------------------------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dev = "png"
+)
+
+## -----------------------------------------------------------------------------
 library(ggswissmaps)
 
 data("shp_df")
@@ -6,11 +13,11 @@ class(shp_df)
 length(shp_df)
 names(shp_df)
 
-## ----eval=FALSE----------------------------------------------------------
-#  # Data description
-#  ?shp_df
+## ----eval=FALSE---------------------------------------------------------------
+# # Data description
+# ?shp_df
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 names(maps2)
 
 # By name
@@ -19,13 +26,15 @@ maps2[["g1k15"]]
 # By index
 maps2[[5]]
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
+library(ggplot2)
 ggplot(shp_df[["g1k15"]], aes(x = long, y = lat, group = group)) +
   geom_path() +
   coord_equal() +
-  theme_white_f()
+  theme_white_f() +
+  labs(x = NULL, y = NULL, caption = "Boundaries: BFS GEOSTAT / swisstopo")
 
-## ----message=FALSE-------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 # Data frame with the coordinates of all swiss districts
 d <- shp_df[["g1b15"]]
 

@@ -5,9 +5,11 @@
 \alias{maps2}
 \title{A list with 8 'ggplot2' objects of swiss territory boundaries, at various
 levels.}
-\format{A list with 8 data frames with swiss territory boundaries (at various levels).}
+\format{
+A list with 8 data frames with swiss territory boundaries (at various levels).
+}
 \source{
-\url{http://www.bfs.admin.ch/bfs/portal/fr/index/dienstleistungen/geostat/datenbeschreibung.html}
+\url{https://data.geo.admin.ch/browser/index.html#/collections/ch.bfs.historisierte-administrative_grenzen_g1?.language=en}. Download date: 2015-08-18
 }
 \usage{
 maps2
@@ -37,4 +39,3 @@ maps2[["g1k15"]]
 maps2[[5]]
 }
 \keyword{datasets}
-
